@@ -26,8 +26,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Frontend Mentor]()
-- Live Site URL: [Vercel]()
+- Solution URL: [Frontend Mentor](https://www.frontendmentor.io/solutions/page-created-with-html-vanilla-sass-js-es6-vite-mpsOaPR1xy)
+- Live Site URL: [Vercel](https://fylo-data-storage-component-master-fm.vercel.app/)
 
 ## My process
 
