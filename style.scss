@@ -1,9 +1,10 @@
-$gradient: linear-gradient(90deg, hsl(335, 100%, 65%) 0%, hsl(6, 100%, 80%) 100%);
+$gradient: linear-gradient(90deg, hsl(6, 100%, 80%) 0%, hsl(335, 100%, 65%) 100%);
 
 $pale_blue: hsl(243, 100%, 93%);
 $grayish_blue: hsl(229, 7%, 55%);
 $dark_blue: hsl(228, 56%, 26%);
 $very_dark_blue: hsl(229, 57%, 11%);
+$nav_buttons: #6a7ed7;
 
 * {
   margin: 0;
@@ -17,9 +18,206 @@ $very_dark_blue: hsl(229, 57%, 11%);
 html {
   font-size: .625rem;
 }
-body {
-  background: $very_dark_blue;
+footer {
+  display: none;
 }
 h1, h2, h3, h4, h5, h6 {
   margin: 0;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  padding: 10rem 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  display: grid;
+  place-items: center;
+  background: $very_dark_blue;
+
+  main#app {
+    width: 100%;
+    margin: auto;
+
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+
+    section {
+      width: 84%;
+      max-width: 36rem;
+      padding: 3.6rem;
+
+      background: $dark_blue;
+    }
+    section.first-container {
+      overflow: hidden;
+      margin-bottom: 2rem;
+      border-radius: 1rem 10rem 1rem 1rem;
+
+      img {
+        margin-bottom: 2.8rem;
+      }
+      nav {
+        button {
+          width: 4.8rem;
+          height: 4.8rem;
+          margin-right: 1.2rem;
+
+          background: $very_dark_blue;
+          border: none;
+          border-radius: 1rem;
+
+          color: $nav_buttons;
+          font-size: 2.6rem;
+
+          transition: opacity .2s ease-in-out;
+
+          &:hover {
+            opacity: .8;
+          }
+        }
+      }
+    }
+    section.next-container {
+      position: relative;
+      border-radius: 1rem;
+
+      display: grid;
+      place-items: center;
+
+      & > * {
+        width: 100%;
+      }
+
+      & > p {
+        margin-bottom: 1.6rem;
+
+        text-align: center;
+        font-size: 1.4rem;
+      }
+
+      div.bar-comp {
+        div.bar {
+          margin-bottom: 1.2rem;
+
+          height: 2rem;
+          overflow: hidden;
+
+          background: $very_dark_blue;
+          border: .25rem solid $very_dark_blue;
+
+          border-radius: 1rem;
+
+          display: flex;
+
+          div.inner-bar {
+            width: 75%;
+            height: 100%;
+
+            position: relative;
+            background: $gradient;
+            border-radius: 1rem;
+
+            display: grid;
+            place-items: center;
+
+            &::after {
+              width: 1.1rem;
+              height: 1.1rem;
+
+              content: '';
+              position: absolute;
+              top: .2rem;
+              right: .2rem;
+
+              background: $pale_blue;
+              border-radius: .6rem;
+            }
+          }
+        }
+        div.bar-limits {
+          margin-bottom: 1.6rem;
+
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+
+          p {
+            font-size: 1.2rem;
+            font-weight: 700;
+          }
+        }
+      }
+      div.gb-left {
+        width: auto;
+        padding: 1.2rem 2.4rem;
+
+        position: absolute;
+        bottom: -3.2rem;
+
+        display: flex;
+        place-items: center;
+        background: $pale_blue;
+        border-radius: 1rem;
+
+        color: $grayish_blue;
+        font-size: 1.2rem;
+        text-transform: uppercase;
+        font-weight: 700;
+
+        b {
+          font-size: 4rem;
+          color: $very_dark_blue;
+        }
+      }
+    }
+  }
+
+  @media screen and (min-width: 992px) {
+    main#app {
+      padding: 3%;
+      flex-direction: row;
+      align-items: flex-end;
+      gap: 3.2rem;
+
+      section.first-container {
+        margin-bottom: 0;
+      }
+      section.next-container {
+        flex: 1;
+        max-width: 56rem;
+
+        & > p {
+          text-align: left;
+        }
+
+        div.bar-comp {
+          div.bar-limits {
+            margin-bottom: 0;
+          }
+        }
+
+        div.gb-left {
+          bottom: 85%;
+          right: 3.6rem;
+
+          border-radius: 1rem 1rem 0;
+
+          &::before {
+            content: '';
+            position: absolute;
+            top: 100%;
+            right: 0;
+
+            border:1rem solid $pale_blue;
+            border-bottom-color:transparent;
+            border-left-color:transparent;
+          }
+        }
+      }
+    }
+  }
 }
